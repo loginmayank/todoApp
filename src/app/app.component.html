@@ -1,0 +1,43 @@
+<toaster-container></toaster-container>
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+            <a class="navbar-brand" routerLink="/"><img src="../assets/img/todo-icon.svg"> TaskLists</a>
+        </li>
+        </ul>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul *ngIf="!authService.isAuthenticated()" class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                            <a class="nav-link" routerLink="/signup">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" routerLink="/login">Login</a>
+                    </li>
+                    
+                </ul>
+
+                <ul *ngIf="authService.isAuthenticated()" class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" routerLink="/my-account">My account</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" (click)="logOutUser()">Logout</a>
+                        </li>
+                </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12"> -->
+            <router-outlet></router-outlet>
+        <!-- </div>
+    </div>
+</div> -->
